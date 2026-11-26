@@ -8,8 +8,8 @@ Route23WildMons:
 	db 44, CHANSEY
 	db 45, CHANSEY
 	db 46, CHANSEY
-	db 60, CHANSEY
-	db 60, CHANSEY
+	db 50, CHANSEY
+	db 50, CHANSEY
 	end_grass_wildmons
 
 	def_water_wildmons 5 ; encounter rate

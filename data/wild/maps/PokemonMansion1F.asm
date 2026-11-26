@@ -6,10 +6,10 @@ PokemonMansion1FWildMons:
 	db 38, WEEZING
 	db 40, MUK
 	db 42, WEEZING
-	db 60, DITTO
-	db 55, DITTO
-	db 61, DITTO
-	db 62, DITTO
+	db 50, DITTO
+	db 50, DITTO
+	db 50, DITTO
+	db 50, DITTO
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate
