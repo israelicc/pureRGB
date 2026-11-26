@@ -42,7 +42,10 @@ jobs:
       - name: Make
         if: ${{ github.repository_owner != 'pret' }}
         run: |
-          make -j$(nproc)
+          make -j$(nproc) all red_vc blue_vc
+          for artifact in pokered.gbc pokeblue.gbc pokegreen.gbc pokeblue_debug.gbc pokered.patch pokeblue.patch; do
+            test -s "$artifact" || { echo "Missing or empty artifact: $artifact" >&2; exit 1; }
+          done
           .github/checkdiff.sh
 
       - name: Checkout symbols
@@ -98,5 +101,8 @@ jobs:
       - name: Make
         if: ${{ github.repository_owner != 'pret' }}
         run: |
-          make -j$(sysctl -n hw.ncpu)
+          make -j$(sysctl -n hw.ncpu) all red_vc blue_vc
+          for artifact in pokered.gbc pokeblue.gbc pokegreen.gbc pokeblue_debug.gbc pokered.patch pokeblue.patch; do
+            test -s "$artifact" || { echo "Missing or empty artifact: $artifact" >&2; exit 1; }
+          done
           .github/checkdiff.sh
