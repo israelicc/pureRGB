@@ -29,3 +29,7 @@
 *.sn*
 *.sa*
 *.sg1
+
+# private agent/tooling state (not part of the game fork)
+.opencode/
+workspace-agents/
