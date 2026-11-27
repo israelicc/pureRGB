@@ -24,6 +24,15 @@ db ELECTABUZZ, ELECTRIC, ELECTRIC
 db PINSIR, BUG, BUG
 db KABUTO, ROCK, WATER
 db KABUTOPS, ROCK, WATER
+db BULBASAUR, GRASS, POISON
+db IVYSAUR, GRASS, POISON
+db VENUSAUR, GRASS, POISON
+db CHARMANDER, FIRE, FIRE
+db CHARMELEON, FIRE, FIRE
+db CHARIZARD, FIRE, FLYING
+db SQUIRTLE, WATER, WATER
+db WARTORTLE, WATER, WATER
+db BLASTOISE, WATER, WATER
 db -1
 
 ; input: de = address of original typings in wram to be remapped
@@ -54,7 +63,7 @@ TryRemapTypingNoWramChange::
 IsMonTypeRemapped:
 	push de
 	ld hl, wPkmnTypeRemapFlags
-	ld b, 3
+	ld b, 5
 	call CountSetBitsPreserveWRAM
 	and a ; is the number of set bits non-zero
 	jr z, .noRemap

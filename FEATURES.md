@@ -531,6 +531,9 @@ As soon as you have your first badge (Boulderbadge) from Pewter City, there is a
 - Ponyta and Rapidash are now Fire/Normal 
 - Goldeen and Seaking are now Water/Normal
 - Victreebel is Grass/Dragon
+- Bulbasaur/Ivysaur/Venusaur are Grass/Rock
+- Charmander/Charmeleon/Charizard are Fire/Dragon
+- Squirtle/Wartortle/Blastoise are Water/Ground
 
 Additionally, GHOST type was made a "Dynamic type". What this means, is it can do Physical or Special damage depending on your base SPECIAL and base ATTACK. If base SPECIAL is higher than base ATTACK for your pokemon, GHOST type moves will be use SPECIAL for damage calculation. Otherwise, they will use ATTACK and the opponent's DEFENSE for damage calculation. This lets pokemon like Gengar be a bit more useful while also allowing physical attacker pokemon to benefit from physical damage on ghost attacks.
 

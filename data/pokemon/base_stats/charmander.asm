@@ -3,7 +3,7 @@
 	db  39,  52,  43,  65,  50
 	;   hp  atk  def  spd  spc
 
-	db FIRE, FIRE ; type
+	db FIRE, DRAGON ; type ; PureRGBnote: CHANGED: typing changed to Fire/Dragon; original Fire/Fire restorable via Type Guy
 	db 45 ; catch rate
 	db 65 ; base exp
 

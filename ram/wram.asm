@@ -2679,7 +2679,7 @@ wTrainerHeaderPtr:: dw
 wBillsGardenVisitor:: 
 wBillsGardenPreviousVisitors:: ds 3 ; PureRGBnote: ADDED: used to track the last 3 visitors at bills garden to make randomization less annoying
 
-wPkmnTypeRemapFlags:: ds 3 ; flag array for changing pokemon back to their original types. 0 = new typing, 1 = old typing
+wPkmnTypeRemapFlags:: ds 5 ; flag array for changing pokemon back to their original types. 0 = new typing, 1 = old typing
 
 ; the trainer the player must face after getting a wrong answer in the Cinnabar
 ; gym quiz
