@@ -147,7 +147,7 @@ Moves:
 	move SPIKE_CANNON, TWO_OR_THREE_ATTACKS_EFFECT, 34, ROCK,         100, 10
 	move CONSTRICT,    SIPHON_SNAG_EFFECT,          60, ELECTRIC,     100, 20 ; -> SIPHON SNAG
 	move AMNESIA,      SPECIAL_UP2_EFFECT,           0, PSYCHIC_TYPE, 100, 20 
-	move KINESIS,      FIREWALL_EFFECT,             16, FIRE,          90, 30 ; -> FIREWALL ; burns the opponent, and damage increases with each use on a burned opponent
+	move KINESIS,      FIREWALL_EFFECT,              0, FIRE,         100, 30 ; -> FIREWALL ; PureRGBnote: CHANGED: dedicated burn status move, 100 accuracy, no damage
 	move SOFTBOILED,   HEAL_EFFECT,                  0, NORMAL,       100, 10
 	move HI_JUMP_KICK, JUMP_KICK_EFFECT,           104, FIGHTING,      90, 10
 	move GLARE,        PARALYZE_EFFECT,              0, NORMAL,       100, 30

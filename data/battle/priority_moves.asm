@@ -16,6 +16,8 @@ PriorityMoves:
 	db GLARE
 	db POISONPOWDER
 	db TOXIC
+; PureRGBnote: ADDED: FIREWALL joins the status-move priority tier.
+	db KINESIS ; FIREWALL
 ; PureRGBnote: ADDED: stat-drop moves join the same priority list; faster move still wins ties.
 	db TAIL_WHIP
 	db LEER

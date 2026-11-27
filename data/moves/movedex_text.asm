@@ -1498,22 +1498,6 @@ _KinesisDexEntry::
 	bage "Causes burn if"
 	next "it hits. Can't"
 	next "burn FIRE-types."
-
-	bage "Each time the move"
-	next "hits a burned foe,"
-	next "the fire wall gets"
-
-	bage "larger; move power"
-	next "increases by 24"
-	next "points each hit,"
-
-	bage "to max 64 power."
-	next "If the <user> is at"
-	next "least level 50,"
-
-	bage "power raises by 48"
-	next "points each hit to"
-	next "maximum 112 power"
 	dex
 
 _SoftboiledDexEntry::

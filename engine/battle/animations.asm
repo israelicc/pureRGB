@@ -948,22 +948,18 @@ FlashScreenEveryFourFrameBlocks:
 	call z, AnimationFlashScreen
 	ret
 
-; PureRGBnote: ADDED: when using firewall on a burned opponent, the animation changes slightly to indicate how powerful it is.
+; PureRGBnote: CHANGED: FIREWALL is a burn status move; palette flickers once the target is burned.
 FirewallSpecialEffect:
 	ldh a, [hWhoseTurn]
 	and a
-	ld hl, wEnemyBattleStatus3
 	ld de, wEnemyMonStatus
 	jr z, .gotTurn
-	ld hl, wPlayerBattleStatus3
 	ld de, wBattleMonStatus
 .gotTurn
 	ld a, [de]
 	bit BRN, a
 	ret z
-	bit BOOSTED_FIREWALL, [hl]
-	jr nz, .endOfAnimCheck
-.notEndAnim
+.flicker
 	ld a, [wSubAnimCounter]
 	and 11
 	ret nz
@@ -972,21 +968,6 @@ FirewallSpecialEffect:
 	call AnimationResetScreenPalette
 	rst _DelayFrame
 	ret
-.endOfAnimCheck
-	ld a, [wSubAnimCounter]
-	cp 1
-	jr nz, .notEndAnim
-	ld a, [wSubAnimStepCounter]
-	cp 3
-	jr nz, .notEndAnim
-	ld a, $20
-	ld [wFrequencyModifier], a
-	ld a, $00
-	ld [wTempoModifier], a
-	ld a, SFX_BATTLE_26
-	rst _PlaySound
-	ld hl, AnimationSpiralFireInwardFast
-	jp CallWithTurnFlipped
 
 ; used for Explosion and Selfdestruct
 ; PureRGBnote: CHANGED: the animations don't flash when doing normal explosion, but with the powerful one at low health, flashing happens.

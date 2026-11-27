@@ -81,10 +81,9 @@ RemappableMoves::
 	db DOUBLESLAP, -1, -2, 0
 	db EXPLOSION, -1, -2, 2
 	db SELFDESTRUCT, -1, -2, 2
-	db KINESIS, -1, -2, 3 ; FIREWALL
-	db TOXIC, -1, -2, 4
-	db SKULL_BASH, -1, -2, 5
-	db SLAM, -1, -2, 6 ; FILTHY SLAM
+	db TOXIC, -1, -2, 3
+	db SKULL_BASH, -1, -2, 4
+	db SLAM, -1, -2, 5 ; FILTHY SLAM
 	; signature moves start here
 	db POISON_STING, BEEDRILL, 36, 0
 	db TWINEEDLE, BEEDRILL, 52, 0
@@ -111,7 +110,6 @@ ModifierFuncs:
 	dw DoubleSlapModifier
 	dw SingModifier
 	dw ExplosionSelfdestructModifier
-	dw FirewallModifier
 	dw ToxicModifier
 	dw SkullBashModifier
 	dw FilthySlamModifier
@@ -211,43 +209,6 @@ ExplosionSelfdestructModifier:
 	res SEEDED, a ; clear mon's leech seed status
 	ld [de], a
 	jpfar DrawHUDsAndHPBars
-
-FirewallModifier:
-	ldh a, [hWhoseTurn]
-	and a
-	ld hl, wEnemyBattleStatus3
-	ld de, wEnemyMonStatus
-	jr z, .gotTurn
-	ld hl, wPlayerBattleStatus3
-	ld de, wBattleMonStatus
-.gotTurn
-	ld a, [de]
-	bit BRN, a
-	ret z ; no power boosts if opponent not already burned
-	push hl
-	call GetMoveRemapData
-	ld a, e
-	cp 50 ; is pokemon at least level 50
-	jr nc, .stronger ; if so the move will boost higher in power on burned mons
-.weaker
-	pop hl
-	bit BOOSTED_FIREWALL, [hl]
-	ld a, 40
-	jr z, .loadPower
-	ld a, 64
-	jr .loadPower
-.stronger
-	pop hl
-	bit BOOSTED_FIREWALL, [hl]
-	ld a, 64
-	jr z, .loadPower
-	ld a, 112
-.loadPower
-	push af
-	call GetMoveRemapData2
-	pop af
-	ld [bc], a
-	ret
 
 ; input d = which pokemon
 GetRemappedMoveAndPowerFromPokemon::

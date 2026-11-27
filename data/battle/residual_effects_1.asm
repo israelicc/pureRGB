@@ -15,4 +15,6 @@ ResidualEffects1:
 	db SUBSTITUTE_EFFECT
 	db LEECH_SEED_EFFECT
 	db SPLASH_EFFECT
+; PureRGBnote: ADDED: FIREWALL is a status move; its handler owns the accuracy test.
+	db FIREWALL_EFFECT
 	db -1 ; end

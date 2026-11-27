@@ -167,8 +167,6 @@ AIMoveChoiceModification1:
 	jp z, .checkAsleep
 	cp OHKO_EFFECT
 	jr z, .ohko
-	cp FIREWALL_EFFECT
-	jp z, .firewall
 	ld a, [wEnemyMovePower]
 	and a
 	jr nz, .nextMove
@@ -249,24 +247,6 @@ AIMoveChoiceModification1:
 .sleepNextMove
 	pop bc
 	pop hl
-	jp .nextMove
-.firewall
-	; discourage firewall if opponent has a status that isn't burned since it will stay at 20 power in that case
-	ld a, [wAITargetMonStatus]
-	and a
-	jr nz, .aiThinksStatus
-	; ai doesn't think opponent has status on switching/healing
-	ld a, [wAIMoveSpamAvoider] ; set if we switched or healed this turn
-	cp 2 ; set to 2 if we switched
-	jr z, .firewallNext ; if we switched and opponent thinks no status, don't discourage firewall 
-	ld a, [wBattleMonStatus]
-	and a
-	jr z, .firewallNext ; if no status, don't discourage
-.aiThinksStatus
-	bit BRN, a
-	jr z, .discourage
-	; fall through
-.firewallNext
 	jp .nextMove
 ; PureRGBnote: CHANGED: AI stops choosing stat boosts once the relevant stat is at the +2 cap, not +6.
 .discourageStatBoostingMoveWhenMaxedOut
@@ -352,6 +332,8 @@ StatusAilmentMoveEffects:
 	db SLEEP_EFFECT
 	db POISON_EFFECT
 	db PARALYZE_EFFECT
+; PureRGBnote: ADDED: FIREWALL is a burn status move.
+	db FIREWALL_EFFECT
 	db -1 ; end
 
 CheckTeleportUsable:
@@ -487,6 +469,9 @@ CheckStatusImmunity:
 	jr z, .getMonTypes
 	cp PARALYZE_EFFECT
 	jr z, .checkParalyze
+	cp FIREWALL_EFFECT
+	ld b, FIRE
+	jr z, .getMonTypes
 	; SLEEP_EFFECT
 	ld a, [wBattleFunctionalFlags]
 	bit 2, a ; are screeches echoing?

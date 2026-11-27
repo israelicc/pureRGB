@@ -1,4 +1,4 @@
-; PureRGBnote: ADDED: Firewall burns the opponent, and its power increases each time you use it on burned opponents.
+; PureRGBnote: CHANGED: FIREWALL is now a dedicated burn status move, like THUNDER_WAVE.
 
 FirewallEffect_:
 	ld hl, wEnemyMonStatus
@@ -10,31 +10,36 @@ FirewallEffect_:
 	ld de, wBattleMonType1
 .gotTurn
 	ld a, [hl]
-	bit BRN, a
-	jr nz, .setFirewallFlag
 	and a ; does the target already have a status ailment?
-	ret nz
+	jr nz, .didntAffect
 ; check if the target is immune to burn due to types
 	ld a, [de]
 	cp FIRE
-	ret z
+	jr z, .doesntAffect
 	inc de
 	ld a, [de]
 	cp FIRE
-	ret z
+	jr z, .doesntAffect
+	push hl
+	callfar MoveHitTest
+	pop hl
+	ld a, [wMoveMissed]
+	and a
+	jr nz, .didntAffect
 	set BRN, [hl]
 	callfar HalveAttackDueToBurn
-	jpfar PrintBurnText	
-.setFirewallFlag
-	; if already burned and the move hit, set a flag that will increase power further
-	ldh a, [hWhoseTurn]
-	and a
-	ld hl, wEnemyBattleStatus3
-	jr z, .gotTurn2
-	ld hl, wPlayerBattleStatus3
-.gotTurn2
-	set BOOSTED_FIREWALL, [hl]
-	ret
+	ld c, 30
+	rst DelayFrames
+	callfar PlayCurrentMoveAnimation
+	jpfar PrintBurnText
+.didntAffect
+	ld c, 50
+	rst DelayFrames
+	jpfar PrintDidntAffectText
+.doesntAffect
+	ld c, 50
+	rst DelayFrames
+	jpfar PrintDoesntAffectText
 
 ; input de = wBattleMonStatus or wEnemyMonStatus
 AutoBurnEffect::
