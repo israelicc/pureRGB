@@ -1,15 +1,15 @@
 SeaRoutesWildMons:
 	def_grass_wildmons 20 ; encounter rate
-	db 120, MISSINGNO
-	db 120, MISSINGNO
-	db 120, MISSINGNO
-	db 120, MISSINGNO
-	db 120, MISSINGNO
-	db 120, MISSINGNO
-	db 120, MISSINGNO
-	db 120, MISSINGNO
-	db 120, MISSINGNO
-	db 120, MISSINGNO
+	db 50, MISSINGNO
+	db 50, MISSINGNO
+	db 50, MISSINGNO
+	db 50, MISSINGNO
+	db 50, MISSINGNO
+	db 50, MISSINGNO
+	db 50, MISSINGNO
+	db 50, MISSINGNO
+	db 50, MISSINGNO
+	db 50, MISSINGNO
 	end_grass_wildmons
 
 	def_water_wildmons 7 ; encounter rate

@@ -92,7 +92,7 @@ CeruleanRocketHouseMissingnoScript:
 	rst DelayFrames
 	ld a, MISSINGNO
 	call PlayCry
-	ld a, 120
+	ld a, 50
 	ld [wCurEnemyLevel], a
 	ld a, MISSINGNO
 	ld [wCurOpponent], a

@@ -1,4 +1,4 @@
-DEF MAX_LEVEL EQU 100
+DEF MAX_LEVEL EQU 50
 
 ; maximum moves known per mon
 DEF NUM_MOVES EQU 4

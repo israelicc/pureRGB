@@ -4,11 +4,11 @@ PokemonMansionB1FWildMons:
 	db 38, ALAKAZAM
 	db 48, MR_MIME
 	db 45, MR_MIME
-	db 55, DITTO
+	db 50, DITTO
 	db 42, ALAKAZAM
-	db 56, PORYGON
-	db 58, PORYGON
-	db 60, PORYGON
+	db 50, PORYGON
+	db 50, PORYGON
+	db 50, PORYGON
 	db 50, DITTO
 	end_grass_wildmons
 
