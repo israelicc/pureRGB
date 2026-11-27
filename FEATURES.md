@@ -514,7 +514,7 @@ The fifth page contains some additional options.
 ## Pokemon type changes
 These changes were all made to make the pokemon more fun to use / more unique from similar pokemon / less bad.
 As soon as you have your first badge (Boulderbadge) from Pewter City, there is an NPC in a house in indigo plateau route 23 past the first guard who can customize which pokemon use new types or their original types if you don't like these changes. However I would recommend keeping at least some of them turned on because they are pretty fun to use and the game and the pokemon's movesets are kind of balanced around them.
-- Ninetales is Fire/Ghost
+- Ninetales is Fire/Psychic
 - Golduck is Water/Psychic
 - Seadra is Water/Dragon
 - Marowak is Ground/Ghost
@@ -530,7 +530,21 @@ As soon as you have your first badge (Boulderbadge) from Pewter City, there is a
 - Sandshrew and Sandslash are Ground/Normal (stronger slash damage!)
 - Ponyta and Rapidash are now Fire/Normal 
 - Goldeen and Seaking are now Water/Normal
-- Victreebel is Grass/Dragon
+- Bellsprout/Weepinbell/Victreebel are Grass/Fire
+- Bulbasaur/Ivysaur/Venusaur are Grass/Rock
+- Charmander/Charmeleon/Charizard are Fire/Dragon
+- Squirtle/Wartortle/Blastoise are Water/Ground
+- Weezing is Poison/Fire
+- Gyarados is Water/Dragon
+- Primeape is Fighting/Ghost
+- Machamp is Normal/Fighting
+- Rhydon is Rock/Fighting
+- Oddish/Gloom/Vileplume are Grass/Water
+- Tentacool/Tentacruel are Water/Electric
+- Muk is Poison/Fighting
+- Krabby is Water/Ground
+- Magmar is Fire/Fighting
+- Venomoth is Bug/Dragon
 
 Additionally, GHOST type was made a "Dynamic type". What this means, is it can do Physical or Special damage depending on your base SPECIAL and base ATTACK. If base SPECIAL is higher than base ATTACK for your pokemon, GHOST type moves will be use SPECIAL for damage calculation. Otherwise, they will use ATTACK and the opponent's DEFENSE for damage calculation. This lets pokemon like Gengar be a bit more useful while also allowing physical attacker pokemon to benefit from physical damage on ghost attacks.
 

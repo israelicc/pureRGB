@@ -3,7 +3,7 @@
 	db  85,  90, 120,  60,  85
 	;   hp  atk  def  spd  spc
 
-	db POISON, POISON ; type
+	db POISON, FIRE ; type ; PureRGBnote: CHANGED: typing changed to Poison/Fire; original Poison/Poison restorable via Type Guy
 	db 70 ; catch rate
 	db 173 ; base exp
 

@@ -3,7 +3,7 @@
 	db  59,  63,  80,  58,  65
 	;   hp  atk  def  spd  spc
 
-	db WATER, WATER ; type
+	db WATER, GROUND ; type ; PureRGBnote: CHANGED: typing changed to Water/Ground; original Water/Water restorable via Type Guy
 	db 45 ; catch rate
 	db 143 ; base exp
 

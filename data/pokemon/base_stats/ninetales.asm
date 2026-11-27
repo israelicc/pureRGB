@@ -3,7 +3,7 @@
 	db  73,  76,  75, 100, 100
 	;   hp  atk  def  spd  spc
 
-	db FIRE, GHOST ; type
+	db FIRE, PSYCHIC_TYPE ; type ; PureRGBnote: CHANGED: typing changed to Fire/Psychic; original Fire/Fire restorable via Type Guy
 	db 75 ; catch rate
 	db 178 ; base exp
 

@@ -3,7 +3,7 @@
 	db  60,  65,  70,  40,  85
 	;   hp  atk  def  spd  spc
 
-	db GRASS, POISON ; type
+	db GRASS, WATER ; type ; PureRGBnote: CHANGED: typing changed to Grass/Water; original Grass/Poison restorable via Type Guy
 	db 120 ; catch rate
 	db 132 ; base exp
 
