@@ -1,4 +1,5 @@
 ; PureRGBnote: CHANGED: Priority moves are now stored in a list instead of hardcoded Quick Attack only.
+; PureRGBnote: ADDED: status moves were added to this shared priority list (speed breaks ties).
 
 PriorityMoves:
 	db QUICK_ATTACK
@@ -9,6 +10,12 @@ PriorityMoves:
 	db TRANSFORM
 	db MIRROR_MOVE
 	db SONICBOOM
+; PureRGBnote: ADDED: status moves join the same priority tier; faster move still wins ties.
+	db STUN_SPORE
+	db THUNDER_WAVE
+	db GLARE
+	db POISONPOWDER
+	db TOXIC
 	db -1 ; end
 
 FarCheckPriority:
