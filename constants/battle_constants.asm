@@ -6,6 +6,8 @@ DEF NUM_MOVES EQU 4
 ; significant stat values
 DEF BASE_STAT_LEVEL EQU 7
 DEF MAX_STAT_LEVEL EQU 13
+; PureRGBnote: CHANGED: positive stat stages are capped at +2 (stage 9). Keep MAX_STAT_LEVEL at 13 because it also encodes the -6 floor (stage 1) and other battle logic.
+DEF MAX_STAT_LEVEL_CAP EQU BASE_STAT_LEVEL + 2
 
 ; VitaminStats indexes (see data/battle/stat_names.asm)
 	const_def 1

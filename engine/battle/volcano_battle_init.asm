@@ -193,7 +193,8 @@ CheckInitSpecialBattleEffect::
 .skipHardCatch
 	; max out its special and defense
 	call .maxSpecial
-	ld a, MAX_STAT_LEVEL - 2
+; PureRGBnote: CHANGED: pre-set to neutral so the following +2 buff lands at +2 under the new cap.
+	ld a, MAX_STAT_LEVEL_CAP - 2
 	ld [wEnemyMonDefenseMod], a
 	ld a, DEFENSE_UP2_EFFECT
 	ld [wEnemyMoveEffect], a
@@ -205,7 +206,8 @@ CheckInitSpecialBattleEffect::
 	ret	
 .maxSpecial
 	SetFlag FLAG_SKIP_STAT_ANIMATION
-	ld a, MAX_STAT_LEVEL - 2
+; PureRGBnote: CHANGED: pre-set to neutral so the following +2 buff lands at +2 under the new cap.
+	ld a, MAX_STAT_LEVEL_CAP - 2
 	ld [wEnemyMonSpecialMod], a
 	ld a, SPECIAL_UP2_EFFECT
 	ld [wEnemyMoveEffect], a
@@ -347,7 +349,8 @@ CheckOnSendOutSpecialEffect::
 	cp 50
 	jr nc, .normalBoosts
 	; give it +4 attack in the end instead of just +2 if it's lower level
-	ld a, MAX_STAT_LEVEL - 4
+; PureRGBnote: CHANGED: pre-set to neutral so the following +2 buff lands at +2 under the new cap.
+	ld a, MAX_STAT_LEVEL_CAP - 2
 	ld [wPlayerMonAttackMod], a
 .normalBoosts
 	SetFlag FLAG_SKIP_STAT_ANIMATION
