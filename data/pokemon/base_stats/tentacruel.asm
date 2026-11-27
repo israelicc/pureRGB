@@ -3,7 +3,7 @@
 	db  80,  70,  65, 100, 120
 	;   hp  atk  def  spd  spc
 
-	db WATER, POISON ; type
+	db WATER, ELECTRIC ; type ; PureRGBnote: CHANGED: typing changed to Water/Electric; original Water/Poison restorable via Type Guy
 	db 60 ; catch rate
 	db 205 ; base exp
 

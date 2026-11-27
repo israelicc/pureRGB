@@ -3,7 +3,7 @@
 	db  95, 125,  79,  81, 100
 	;   hp  atk  def  spd  spc
 
-	db WATER, FLYING ; type
+	db WATER, DRAGON ; type ; PureRGBnote: CHANGED: typing changed to Water/Dragon; original Water/Flying restorable via Type Guy
 	db 45 ; catch rate
 	db 214 ; base exp
 

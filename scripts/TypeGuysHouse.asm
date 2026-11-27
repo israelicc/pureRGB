@@ -228,7 +228,7 @@ TypeGuysHouseTypeGuyText:
 	ld [wListMenuHoverTextType], a
 	ld [wCurrentMenuItem], a
 	ld hl, wPkmnTypeRemapFlags
-	ld b, 5
+	ld b, 8
 	call CountSetBits
 	and a ; is the number of set bits non-zero
 	ld hl, .doneText
@@ -251,7 +251,7 @@ TypeGuysHouseTypeGuyText:
 	text_far_end _TypeGuysHouseTypeGuyFineText
 
 PokemonTypeGuyList::
-	db 32
+	db 48
 	db BUTTERFREE
 	db FEAROW
 	db SANDSHREW
@@ -284,4 +284,20 @@ PokemonTypeGuyList::
 	db SQUIRTLE
 	db WARTORTLE
 	db BLASTOISE
+	db WEEZING
+	db GYARADOS
+	db PRIMEAPE
+	db MACHAMP
+	db RHYDON
+	db ODDISH
+	db GLOOM
+	db VILEPLUME
+	db BELLSPROUT
+	db WEEPINBELL
+	db TENTACOOL
+	db TENTACRUEL
+	db MUK
+	db KRABBY
+	db MAGMAR
+	db VENOMOTH
 	db -1

@@ -3,7 +3,7 @@
 	db  70,  85,  70,  90,  90
 	;   hp  atk  def  spd  spc
 
-	db BUG, POISON ; type
+	db BUG, DRAGON ; type ; PureRGBnote: CHANGED: typing changed to Bug/Dragon; original Bug/Poison restorable via Type Guy
 	db 75 ; catch rate
 	db 138 ; base exp
 

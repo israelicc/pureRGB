@@ -3,7 +3,7 @@
 	db  120, 130,  80,  55,  65
 	;   hp   atk   def  spd  spc
 
-	db FIGHTING, FIGHTING ; type
+	db NORMAL, FIGHTING ; type ; PureRGBnote: CHANGED: typing changed to Normal/Fighting; original Fighting/Fighting restorable via Type Guy
 	db 75 ; catch rate
 	db 193 ; base exp
 
