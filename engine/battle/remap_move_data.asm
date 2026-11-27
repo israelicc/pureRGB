@@ -86,25 +86,25 @@ RemappableMoves::
 	db SKULL_BASH, -1, -2, 5
 	db SLAM, -1, -2, 6 ; FILTHY SLAM
 	; signature moves start here
-	db POISON_STING, BEEDRILL, 45, 0
-	db TWINEEDLE, BEEDRILL, 65, 0 
-	db ACID, ARBOK, 100, 0
-	db DRILL_PECK, FEAROW, 110, 0
-	db ROCK_SLIDE, GOLEM, 110, 0
-	db HI_JUMP_KICK, HITMONLEE, 160, 0
-	db COMET_PUNCH, HITMONCHAN, 90, 0
-	db THUNDERPUNCH, ELECTABUZZ, 105, 0
-	db FIRE_PUNCH, MAGMAR, 105, 0
-	db ICE_PUNCH, JYNX, 105, 0
+	db POISON_STING, BEEDRILL, 36, 0
+	db TWINEEDLE, BEEDRILL, 52, 0
+	db ACID, ARBOK, 80, 0
+	db DRILL_PECK, FEAROW, 88, 0
+	db ROCK_SLIDE, GOLEM, 88, 0
+	db HI_JUMP_KICK, HITMONLEE, 128, 0
+	db COMET_PUNCH, HITMONCHAN, 72, 0
+	db THUNDERPUNCH, ELECTABUZZ, 84, 0
+	db FIRE_PUNCH, MAGMAR, 84, 0
+	db ICE_PUNCH, JYNX, 84, 0
 	db HYPNOSIS, HYPNO, -1, 85 percent
-	db DRAGON_RAGE, DRAGONITE, 100, 0
-	db WATERFALL, SEAKING, 160, 0
-	db DIZZY_PUNCH, KANGASKHAN, 130, 0
-	db LICK, LICKITUNG, 70, 0
-	db SPIKE_CANNON, OMASTAR, 70, 0
+	db DRAGON_RAGE, DRAGONITE, 80, 0
+	db WATERFALL, SEAKING, 128, 0
+	db DIZZY_PUNCH, KANGASKHAN, 104, 0
+	db LICK, LICKITUNG, 56, 0
+	db SPIKE_CANNON, OMASTAR, 56, 0
 	db FIRE_BLAST, ARCANINE, -1, 100 percent
 	db BLIZZARD, DEWGONG, -1, 100 percent
-	db PSYBEAM, GOLDUCK, 105, 0
+	db PSYBEAM, GOLDUCK, 84, 0
 	db -1
 
 ModifierFuncs:
@@ -232,16 +232,16 @@ FirewallModifier:
 .weaker
 	pop hl
 	bit BOOSTED_FIREWALL, [hl]
-	ld a, 50
+	ld a, 40
 	jr z, .loadPower
-	ld a, 80
+	ld a, 64
 	jr .loadPower
 .stronger
 	pop hl
 	bit BOOSTED_FIREWALL, [hl]
-	ld a, 80
+	ld a, 64
 	jr z, .loadPower
-	ld a, 140
+	ld a, 112
 .loadPower
 	push af
 	call GetMoveRemapData2
@@ -319,5 +319,5 @@ FilthySlamModifier::
 	ld a, [bc]
 	bit PSN, a
 	ret z
-	ld [hl], 130 ; increase filthy slam power to 130 if opponent poisoned
+	ld [hl], 104 ; increase filthy slam power to 104 if opponent poisoned
 	ret

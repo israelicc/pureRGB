@@ -223,7 +223,7 @@ _SlamDexEntry::
 	next "leg, arm, etc. "
 
 	bage "Power increases to"
-	next "130 if opponent is"
+	next "104 if opponent is"
 	next "poisoned"
 	dex
 
@@ -1504,16 +1504,16 @@ _KinesisDexEntry::
 	next "the fire wall gets"
 
 	bage "larger; move power"
-	next "increases by 30"
+	next "increases by 24"
 	next "points each hit,"
 
-	bage "to max 80 power."
+	bage "to max 64 power."
 	next "If the <user> is at"
 	next "least level 50,"
 
-	bage "power raises by 60"
+	bage "power raises by 48"
 	next "points each hit to"
-	next "maximum 140 power"
+	next "maximum 112 power"
 	dex
 
 _SoftboiledDexEntry::
