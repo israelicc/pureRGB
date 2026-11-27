@@ -16,6 +16,11 @@ PriorityMoves:
 	db GLARE
 	db POISONPOWDER
 	db TOXIC
+; PureRGBnote: ADDED: stat-drop moves join the same priority list; faster move still wins ties.
+	db TAIL_WHIP
+	db LEER
+	db GROWL
+	db STRING_SHOT
 	db -1 ; end
 
 FarCheckPriority:
