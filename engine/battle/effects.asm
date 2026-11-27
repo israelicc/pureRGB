@@ -401,8 +401,8 @@ AccuracyAttackUpEffect:
 	push de
 	call GetAccuracyPointers
 	ld a, [hl]
-	cp MAX_STAT_LEVEL
-	jr z, .nextStat ; accuracy has no stat associated so only check if at +6
+	cp MAX_STAT_LEVEL_CAP ; PureRGBnote: CHANGED: +2 cap
+	jr z, .nextStat ; accuracy has no stat associated so only check if at +2
 	ld a, ACCURACY_UP1_EFFECT
 	call ReplacedStatModifierUpEffect
 .nextStat
@@ -511,27 +511,27 @@ StatModifierUpEffect:
 ;;;;;;;;;;
 	sub ATTACK_UP1_EFFECT
 	cp EVASION_UP1_EFFECT + $3 - ATTACK_UP1_EFFECT ; covers all +1 effects
-	jr c, .incrementStatMod
+	jr c, .gotStatIndex
 	sub ATTACK_UP2_EFFECT - ATTACK_UP1_EFFECT ; map +2 effects to equivalent +1 effect
-.incrementStatMod
+.gotStatIndex
 	ld c, a
 	ld b, $0
 	add hl, bc
-	ld b, [hl]
-	inc b ; increment corresponding stat mod
-	ld a, MAX_STAT_LEVEL
-	cp b ; can't raise stat past +6 ($d or 13)
-	jp c, PrintNothingHappenedText
-;;;;;;;;;; PureRGBnote: ADDED: need to decide which stat is being modified here and store it so we can apply correct badge boosts if necessary
+	ld b, [hl] ; current stat stage
+;;;;;;;;;; PureRGBnote: CHANGED: compute full delta first (+1 or +2), then refuse the whole buff if new stage passes the +2 cap. No partial rise, badge boost, "rose" text or animation.
 	ld a, d ; remapped stat mod
-;;;;;;;;;;
 	cp ATTACK_UP1_EFFECT + $8 ; is it a +2 effect?
-	jr c, .ok
-	inc b ; if so, increment stat mod again
-	ld a, MAX_STAT_LEVEL
-	cp b ; unless it's already +6
-	jr nc, .ok
-	ld b, a
+	jr c, .plusOne
+	inc b ; +2 effect: first stage
+	inc b ; +2 effect: second stage
+	jr .checkCap
+.plusOne
+	inc b ; +1 effect
+.checkCap
+	ld a, MAX_STAT_LEVEL_CAP ; PureRGBnote: +2 cap (stage 9), not +6
+	cp b ; would the new stage exceed +2?
+	jp c, PrintNothingHappenedText
+;;;;;;;;;;
 .ok
 	ld [hl], b
 	ld a, c
@@ -1895,10 +1895,11 @@ SuperFangEffect:
 
 ; input hl = which stat's current value
 ; input de = current stat modifier of this stat
-; stats can be maxed (at 999) when using very high level pokemon but the stat modifier isn't yet at +6, still considered maxed out.
+; stats can be maxed (at 999) when using very high level pokemon but the stat modifier isn't yet at +2, still considered maxed out.
+; PureRGBnote: CHANGED: "maxed" means the +2 cap now, not +6. The 999-stat check below is unchanged.
 IsStatMaxed:
 	ld a, [de]
-	cp MAX_STAT_LEVEL ; stat has been maxed out
+	cp MAX_STAT_LEVEL_CAP ; PureRGBnote: +2 cap
 	jr z, .maxed
 	ld a, [hld]
 	cp LOW(MAX_STAT_VALUE)

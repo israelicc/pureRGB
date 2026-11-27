@@ -268,6 +268,7 @@ AIMoveChoiceModification1:
 	; fall through
 .firewallNext
 	jp .nextMove
+; PureRGBnote: CHANGED: AI stops choosing stat boosts once the relevant stat is at the +2 cap, not +6.
 .discourageStatBoostingMoveWhenMaxedOut
 	ld a, [wEnemyMoveEffect]
 	ld hl, StatBoostingEffectList
@@ -287,7 +288,7 @@ AIMoveChoiceModification1:
 	ld d, 0
 	add hl, de
 	ld a, [hl] ; number of stat mods
-	cp MAX_STAT_LEVEL
+	cp MAX_STAT_LEVEL_CAP ; PureRGBnote: +2 cap
 	jr z, .discourageStatBoostMove
 .notMaxedOut
 	pop bc
@@ -301,31 +302,31 @@ AIMoveChoiceModification1:
 	jp .discourage
 .meditateCheck
 	ld a, [wEnemyMonAttackMod]
-	cp MAX_STAT_LEVEL
+	cp MAX_STAT_LEVEL_CAP ; PureRGBnote: +2 cap
 	jr nz, .notMaxedOut
 	ld hl, wEnemyMonSpeedMod
 	ld a, [hli]
-	cp MAX_STAT_LEVEL
+	cp MAX_STAT_LEVEL_CAP ; PureRGBnote: +2 cap
 	jr nz, .notMaxedOut
 	ld a, [hl]
-	cp MAX_STAT_LEVEL
+	cp MAX_STAT_LEVEL_CAP ; PureRGBnote: +2 cap
 	jr nz, .notMaxedOut	
 	jr .discourageStatBoostMove
 .sharpenCheck
 	ld a, [wEnemyMonAttackMod]
-	cp MAX_STAT_LEVEL
+	cp MAX_STAT_LEVEL_CAP ; PureRGBnote: +2 cap
 	jr nz, .notMaxedOut
 	ld a, [wEnemyMonAccuracyMod]
-	cp MAX_STAT_LEVEL
+	cp MAX_STAT_LEVEL_CAP ; PureRGBnote: +2 cap
 	jr nz, .notMaxedOut
 	jr .discourageStatBoostMove
 .bideCheck
 	ld hl, wEnemyMonAttackMod
 	ld a, [hli]
-	cp MAX_STAT_LEVEL
+	cp MAX_STAT_LEVEL_CAP ; PureRGBnote: +2 cap
 	jr nz, .notMaxedOut
 	ld a, [hl]
-	cp MAX_STAT_LEVEL
+	cp MAX_STAT_LEVEL_CAP ; PureRGBnote: +2 cap
 	jr nz, .notMaxedOut
 	jr .discourageStatBoostMove
 
